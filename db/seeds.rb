@@ -31,7 +31,7 @@ puts "5 Skills Created"
 
 5.times do |portfolio_item|
   Portfolio.create!(
-  title: "Portfolio_title: #{portfolio_item}",
+  title: "Portfolio title: #{portfolio_item}",
   subtitle: "My great service",
   body: "Wayfarers whatever fashion axe yr, vaporware succulents leggings pinterest
   occupy kinfolk put a bird on it kickstarter lomo. DIY waistcoat typewriter cornhole ugh.
