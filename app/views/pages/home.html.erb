@@ -2,7 +2,16 @@
 <p>Find me in app/views/pages/home.html.erb</p>
 
 <h1>Blog Posts</h1>
-<%= @posts.inspect %>
+
+<% @posts.each do |post| %>
+  <p><%= post.title %></p>
+  <p><%= post.body %></p>
+<% end %>
 
 <h1>Skills</h1>
-<%= @skills.inspect %>
+
+<% @skills.each do |skill| %>
+  <p><%= skill.title %></p>
+  <p><%= skill.percent_utilized %></p>
+  <p><%= skill.badge %></p>
+<% end %>
