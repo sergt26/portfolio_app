@@ -165,11 +165,16 @@ body {
  * Custom Styles
  */
 
- .card-block {
+.card-block {
    color: black;
+   font-size: .65rem;
    text-align: left;
 }
 
 .auth-links a {
   color: black;
+}
+
+.register-text {
+  text-align: right;
 }
