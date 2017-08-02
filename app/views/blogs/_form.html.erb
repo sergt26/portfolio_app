@@ -1,7 +1,8 @@
-<%= form_with(model: blog, local: true) do |form| %>
+<%= form_for(blog) do |form| %>
+<%#= form_with(model: blog, local: true) do |form| %>
   <% if blog.errors.any? %>
     <% blog.errors.full_messages.each do |error| %>
-      <%= js add_gritter(error, title: "Sergio Aravena Portfolio", sticky: false, time: 4000) %>
+      <%= alert_generator error %>
     <% end %>
   <% end %>
 
