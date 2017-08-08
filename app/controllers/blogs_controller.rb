@@ -6,7 +6,11 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.page(params[:page]).per(5)
+    if logged_in?(:site_admin)
+      @blogs = Blog.recent.page(params[:page]).per(5)
+    else
+      @blogs = Blog.published.recent.page(params[:page]).per(5)
+    end
     @page_title = "My Portfolio Blog"
   end
 
@@ -15,6 +19,7 @@ class BlogsController < ApplicationController
   def show
     @blog = Blog.includes(:comments).friendly.find(params[:id])
     @comment = Comment.new
+
     @page_title = @blog.title
     @seo_keywords = @blog.body
   end
@@ -35,7 +40,7 @@ class BlogsController < ApplicationController
 
     respond_to do |format|
       if @blog.save
-        format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
+        format.html { redirect_to @blog, notice: 'Your post is now live.' }
       else
         format.html { render :new }
       end
@@ -59,7 +64,7 @@ class BlogsController < ApplicationController
   def destroy
     @blog.destroy
     respond_to do |format|
-      format.html { redirect_to blogs_url, notice: 'Post was successfully deleted.' }
+      format.html { redirect_to blogs_url, notice: 'Post was removed.' }
       format.json { head :no_content }
     end
   end
@@ -71,7 +76,7 @@ class BlogsController < ApplicationController
       @blog.draft!
     end
 
-    redirect_to blogs_url, notice: "Post status has been updated."
+    redirect_to blogs_url, notice: 'Post status has been updated.'
   end
 
   private
