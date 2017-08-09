@@ -1,3 +1,4 @@
+
 @import "bootstrap";
 @import "gritter";
 
@@ -166,9 +167,8 @@ body {
  */
 
 .card-block {
-   color: black;
-   font-size: .65rem;
-   text-align: left;
+  color: black;
+  text-align: left;
 }
 
 .auth-links a {
@@ -201,7 +201,7 @@ body {
   z-index: -100;
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
-  background: image-url('home_bg.png');
+  background: image-url('home_bg.png') no-repeat;
   background-size: cover;
 }
 
@@ -211,20 +211,22 @@ body {
 
 .tech-news {
   color: black;
-  margin: 10px;
+  margin: 20px;
+}
+
+.tech-news > .card {
+  padding: 30px;
 }
 
 .tech-news a {
   color: lightblue;
 }
 
-.tech-news > .card {
-  padding: 5px;
-}
-
 .app-card-container {
   color: black;
   text-align: left;
+  margin-top: 95px;
+  margin-bottom: 95px;
 }
 
 .app-card-container > .card {
@@ -242,4 +244,9 @@ body {
 .card-block {
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.skill {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
